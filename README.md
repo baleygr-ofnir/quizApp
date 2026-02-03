@@ -1,1 +1,1 @@
-# quizApp
+# quizApp in vanilla JS
