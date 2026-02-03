@@ -1,0 +1,93 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f5f5f5;
+  color: #222;
+}
+
+.app-header {
+  background: #222;
+  color: #fff;
+  padding: 1rem 2rem;
+}
+
+.app-main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+#quiz-list-view,
+#quiz-play-view {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+#quiz-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+button {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  border: none;
+  background: #2563eb;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.quiz-question {
+  margin-bottom: 1.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.quiz-question legend {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.quiz-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.25rem 0;
+}
+
+.quiz-question--incomplete {
+  border-color: #ef4444;
+  animation: quiz-blink 0.4s ease-in-out 2;
+}
+
+@keyframes quiz-blink {
+  0% { background-color: #fff; }
+  50% { background-color: #fee2e2; }
+  100% { background-color: #fff; }
+}

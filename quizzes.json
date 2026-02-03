@@ -1,0 +1,337 @@
+[
+  {
+    "id": "general-knowledge",
+    "title": "General Knowledge",
+    "description": "Mixed questions to test your overall knowledge.",
+    "questions": [
+      {
+        "id": "gk-q1",
+        "text": "What is the capital of France?",
+        "options": ["Berlin", "Madrid", "Paris", "Rome"],
+        "correctIndex": 2
+      },
+      {
+        "id": "gk-q2",
+        "text": "Which geometric shape is used for standard road stop signs?",
+        "options": ["Hexagon", "Octagon", "Pentagon", "Heptagon"],
+        "correctIndex": 1
+      },
+      {
+        "id": "gk-q3",
+        "text": "Which American president appears on the one-dollar bill?",
+        "options": ["Abraham Lincoln", "George Washington", "Thomas Jefferson", "Theodore Roosevelt"],
+        "correctIndex": 1
+      },
+      {
+        "id": "gk-q4",
+        "text": "How many colors are there in a traditional rainbow?",
+        "options": ["5", "6", "7", "8"],
+        "correctIndex": 2
+      },
+      {
+        "id": "gk-q5",
+        "text": "Which country gifted the Statue of Liberty to the United States?",
+        "options": ["France", "United Kingdom", "Spain", "Germany"],
+        "correctIndex": 0
+      },
+      {
+        "id": "gk-q6",
+        "text": "Which ancient civilization built the pyramids at Giza?",
+        "options": ["Romans", "Greeks", "Ancient Egyptians", "Babylonians"],
+        "correctIndex": 2
+      },
+      {
+        "id": "gk-q7",
+        "text": "What is the nickname of the U.S. state of California?",
+        "options": ["Empire State", "Sunshine State", "Golden State", "Lone Star State"],
+        "correctIndex": 2
+      },
+      {
+        "id": "gk-q8",
+        "text": "What is the chemical formula for water?",
+        "options": ["CO2", "O2", "H2O", "NaCl"],
+        "correctIndex": 2
+      },
+      {
+        "id": "gk-q9",
+        "text": "Which restaurant chain is known for having a clown as its mascot?",
+        "options": ["Burger King", "McDonald's", "Wendy's", "KFC"],
+        "correctIndex": 1
+      },
+      {
+        "id": "gk-q10",
+        "text": "Which empire was ruled by Julius Caesar before he was assassinated?",
+        "options": ["Greek Empire", "Roman Republic", "Ottoman Empire", "Byzantine Empire"],
+        "correctIndex": 1
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "title": "Science",
+    "description": "Questions about basic scientific facts and principles.",
+    "questions": [
+      {
+        "id": "sci-q1",
+        "text": "What gas do most animals need to breathe to survive?",
+        "options": ["Nitrogen", "Oxygen", "Carbon dioxide", "Hydrogen"],
+        "correctIndex": 1
+      },
+      {
+        "id": "sci-q2",
+        "text": "What is Earth’s primary source of energy?",
+        "options": ["The Moon", "The Sun", "Geothermal heat", "Wind"],
+        "correctIndex": 1
+      },
+      {
+        "id": "sci-q3",
+        "text": "What is the center of an atom called?",
+        "options": ["Electron", "Proton", "Neutron", "Nucleus"],
+        "correctIndex": 3
+      },
+      {
+        "id": "sci-q4",
+        "text": "What is the main gas that makes up Earth’s atmosphere?",
+        "options": ["Oxygen", "Nitrogen", "Carbon dioxide", "Argon"],
+        "correctIndex": 1
+      },
+      {
+        "id": "sci-q5",
+        "text": "What is NaCl commonly known as?",
+        "options": ["Baking soda", "Table salt", "Sugar", "Ammonia"],
+        "correctIndex": 1
+      },
+      {
+        "id": "sci-q6",
+        "text": "Which part of a plant carries out most of the photosynthesis?",
+        "options": ["Roots", "Stem", "Leaves", "Flowers"],
+        "correctIndex": 2
+      },
+      {
+        "id": "sci-q7",
+        "text": "What do you call an animal that only eats plants?",
+        "options": ["Carnivore", "Omnivore", "Herbivore", "Detritivore"],
+        "correctIndex": 2
+      },
+      {
+        "id": "sci-q8",
+        "text": "What kind of blood cells help your body fight infections?",
+        "options": ["Red blood cells", "White blood cells", "Platelets", "Plasma cells"],
+        "correctIndex": 1
+      },
+      {
+        "id": "sci-q9",
+        "text": "What is the unit used to measure electrical current?",
+        "options": ["Volt", "Watt", "Ohm", "Ampere"],
+        "correctIndex": 3
+      },
+      {
+        "id": "sci-q10",
+        "text": "True or false: Matter can be neither created nor destroyed in ordinary chemical reactions.",
+        "options": ["True", "False", "Only in space", "Only under water"],
+        "correctIndex": 0
+      }
+    ]
+  },
+  {
+    "id": "history",
+    "title": "History",
+    "description": "Questions about important events and people from the past.",
+    "questions": [
+      {
+        "id": "hist-q1",
+        "text": "Who was the first President of the United States?",
+        "options": ["George Washington", "Abraham Lincoln", "John Adams", "Thomas Jefferson"],
+        "correctIndex": 0
+      },
+      {
+        "id": "hist-q2",
+        "text": "In which year did World War I begin?",
+        "options": ["1905", "1914", "1918", "1939"],
+        "correctIndex": 1
+      },
+      {
+        "id": "hist-q3",
+        "text": "Which country gifted the Statue of Liberty to the United States?",
+        "options": ["France", "Germany", "Italy", "United Kingdom"],
+        "correctIndex": 0
+      },
+      {
+        "id": "hist-q4",
+        "text": "Which European explorer reached the Americas in 1492?",
+        "options": ["Ferdinand Magellan", "Christopher Columbus", "James Cook", "Vasco da Gama"],
+        "correctIndex": 1
+      },
+      {
+        "id": "hist-q5",
+        "text": "Which ancient writing system is often regarded as one of the earliest known?",
+        "options": ["Hieroglyphics", "Cuneiform", "Alphabet", "Runes"],
+        "correctIndex": 1
+      },
+      {
+        "id": "hist-q6",
+        "text": "What was the name of the ancient Indian empire founded by Chandragupta Maurya?",
+        "options": ["Gupta Empire", "Maurya Empire", "Mughal Empire", "Chola Empire"],
+        "correctIndex": 1
+      },
+      {
+        "id": "hist-q7",
+        "text": "Which war was widely known for its extensive trench warfare?",
+        "options": ["World War I", "World War II", "Korean War", "Vietnam War"],
+        "correctIndex": 0
+      },
+      {
+        "id": "hist-q8",
+        "text": "Which historical protest in 1963 is associated with Martin Luther King Jr.’s “I Have a Dream” speech?",
+        "options": ["Selma March", "March on Washington", "Boston Tea Party", "Montgomery Bus Boycott"],
+        "correctIndex": 1
+      },
+      {
+        "id": "hist-q9",
+        "text": "What battle in 1815 marked Napoleon Bonaparte’s final defeat?",
+        "options": ["Battle of Leipzig", "Battle of Austerlitz", "Battle of Trafalgar", "Battle of Waterloo"],
+        "correctIndex": 3
+      },
+      {
+        "id": "hist-q10",
+        "text": "Which country was the first to grant women the right to vote in national elections?",
+        "options": ["United States", "United Kingdom", "New Zealand", "Sweden"],
+        "correctIndex": 2
+      }
+    ]
+  },
+  {
+    "id": "geography",
+    "title": "Geography",
+    "description": "Questions about countries, cities, and physical geography.",
+    "questions": [
+      {
+        "id": "geo-q1",
+        "text": "Which river is commonly described as the longest river in the world?",
+        "options": ["Amazon River", "Yangtze River", "Nile River", "Mississippi River"],
+        "correctIndex": 2
+      },
+      {
+        "id": "geo-q2",
+        "text": "On which continent is the Sahara Desert located?",
+        "options": ["Asia", "Africa", "Australia", "South America"],
+        "correctIndex": 1
+      },
+      {
+        "id": "geo-q3",
+        "text": "What is the largest ocean on Earth by area?",
+        "options": ["Atlantic Ocean", "Indian Ocean", "Pacific Ocean", "Arctic Ocean"],
+        "correctIndex": 2
+      },
+      {
+        "id": "geo-q4",
+        "text": "Which country has the largest total land area?",
+        "options": ["United States", "China", "Canada", "Russia"],
+        "correctIndex": 3
+      },
+      {
+        "id": "geo-q5",
+        "text": "What is the capital city of Japan?",
+        "options": ["Seoul", "Tokyo", "Beijing", "Kyoto"],
+        "correctIndex": 1
+      },
+      {
+        "id": "geo-q6",
+        "text": "Which country is both an island and a continent?",
+        "options": ["Iceland", "Australia", "Madagascar", "New Zealand"],
+        "correctIndex": 1
+      },
+      {
+        "id": "geo-q7",
+        "text": "Which desert covers much of northern Africa?",
+        "options": ["Gobi Desert", "Great Victoria Desert", "Sahara Desert", "Mojave Desert"],
+        "correctIndex": 2
+      },
+      {
+        "id": "geo-q8",
+        "text": "Which country has the longest total coastline in the world?",
+        "options": ["United States", "Australia", "Russia", "Canada"],
+        "correctIndex": 3
+      },
+      {
+        "id": "geo-q9",
+        "text": "What is the coldest continent on Earth by average temperature?",
+        "options": ["Europe", "Asia", "Antarctica", "North America"],
+        "correctIndex": 2
+      },
+      {
+        "id": "geo-q10",
+        "text": "Which country is famous for cities such as Sydney and Melbourne?",
+        "options": ["South Africa", "Australia", "Canada", "Brazil"],
+        "correctIndex": 1
+      }
+    ]
+  },
+  {
+    "id": "technology",
+    "title": "Technology",
+    "description": "Questions about inventions, computers, and modern tech.",
+    "questions": [
+      {
+        "id": "tech-q1",
+        "text": "Who is widely credited with inventing the World Wide Web?",
+        "options": ["Bill Gates", "Tim Berners-Lee", "Steve Jobs", "Linus Torvalds"],
+        "correctIndex": 1
+      },
+      {
+        "id": "tech-q2",
+        "text": "What does the abbreviation \"CPU\" stand for in computing?",
+        "options": ["Central Processing Unit", "Computer Power Unit", "Central Program Utility", "Core Performance Unit"],
+        "correctIndex": 0
+      },
+      {
+        "id": "tech-q3",
+        "text": "Which company developed the Android operating system for mobile devices?",
+        "options": ["Apple", "Microsoft", "Google", "IBM"],
+        "correctIndex": 2
+      },
+      {
+        "id": "tech-q4",
+        "text": "In computing, what does \"HTML\" stand for?",
+        "options": ["Hyper Trainer Marking Language", "Hyper Text Markup Language", "Hyperlink Text Management Language", "High Transfer Markup Language"],
+        "correctIndex": 1
+      },
+      {
+        "id": "tech-q5",
+        "text": "Which unit is commonly used to measure the storage capacity of a hard drive?",
+        "options": ["Hertz", "Lumens", "Watts", "Gigabytes"],
+        "correctIndex": 3
+      },
+      {
+        "id": "tech-q6",
+        "text": "Which early company is famous for popularizing the graphical user interface in personal computers with its Macintosh line?",
+        "options": ["IBM", "Apple", "Dell", "HP"],
+        "correctIndex": 1
+      },
+      {
+        "id": "tech-q7",
+        "text": "What open-source operating system kernel was created by Linus Torvalds?",
+        "options": ["Windows", "Linux kernel", "macOS", "Android OS"],
+        "correctIndex": 1
+      },
+      {
+        "id": "tech-q8",
+        "text": "Which networking device is primarily used to forward data packets between different networks based on IP addresses?",
+        "options": ["Switch", "Router", "Hub", "Repeater"],
+        "correctIndex": 1
+      },
+      {
+        "id": "tech-q9",
+        "text": "What does \"URL\" stand for when referring to a web address?",
+        "options": ["Universal Resource Locator", "Uniform Resource Locator", "Unified Routing Link", "Universal Routing Locator"],
+        "correctIndex": 1
+      },
+      {
+        "id": "tech-q10",
+        "text": "Which invention by Johannes Gutenberg in the 15th century greatly improved the spread of information?",
+        "options": ["Telegraph", "Printing press with movable type", "Radio", "Mechanical clock"],
+        "correctIndex": 1
+      }
+    ]
+  }
+]
