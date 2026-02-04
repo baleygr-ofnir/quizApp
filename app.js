@@ -4,6 +4,7 @@ const DEFAULT_QUIZZES = "quizzes.json";
 let quizzes = [];
 let activeQuiz = null;
 
+let appHeaderText;
 let quizListElement;
 let quizListView;
 let quizPlayView;
@@ -11,8 +12,10 @@ let quizTitleElement;
 let quizFormElement;
 let quizResultElement;
 let quizSubmitButton;
+let quizBackButton;
 
 document.addEventListener("DOMContentLoaded", () => {
+    appHeaderText = document.querySelector("#app-header-text");
     quizListElement = document.querySelector("#quiz-list");
     quizListView = document.querySelector("#quiz-list-view");
     quizPlayView = document.querySelector("#quiz-play-view");
@@ -20,7 +23,10 @@ document.addEventListener("DOMContentLoaded", () => {
     quizFormElement = document.querySelector("#quiz-form");
     quizResultElement = document.querySelector("#quiz-result");
     quizSubmitButton = document.querySelector("#quiz-submit-btn");
+    quizBackButton = document.querySelector("#quiz-back-btn");
 
+    appHeaderText.addEventListener("click", handleQuizBack);
+    quizBackButton.addEventListener("click", handleQuizBack);
     quizSubmitButton.addEventListener("click", handleQuizSubmit);
 
     initApp();
@@ -33,7 +39,7 @@ async function initApp() {
 
 async function loadQuizzes() {
     const raw = localStorage.getItem(LOCAL_STORAGE_KEY);
-
+    
     if (raw) {
         try {
             const parsed = JSON.parsed(raw);
@@ -42,19 +48,19 @@ async function loadQuizzes() {
             // Fall through to default
         }
     }
-
+    
     const response = await fetch(DEFAULT_QUIZZES);
     if (!response.ok) {
         throw new Error("Failed to load default quizzes");
     }
-
+    
     const data = await response.json();
     if (!Array.isArray(data)) {
         throw new Error("Default quizzes JSON must be an array.");
     }
-
+    
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(data));
-
+    
     return data;
 }
 
@@ -66,7 +72,7 @@ function saveQuizzes(quizzesToSave) {
 
 function renderQuizList() {
     quizListElement.innerHTML = "";
-
+    
     quizzes.forEach((quiz) => {
         const li = document.createElement("li");
         li.className = "quiz-list-item";
@@ -102,16 +108,18 @@ function startQuiz(quizId) {
     quizFormElement.innerHTML = "";
     quizResultElement.textContent = "";
 
-    quizListElement.hidden = true;
+    quizListView.hidden = true;
     quizPlayView.hidden = false;
+    quizBackButton.hidden = false;
 
     renderQuizQuestions(quiz);
 }
 
 function renderQuizQuestions(quiz) {
     quizFormElement.innerHTML = "";
-
+    
     quiz.questions.forEach((question, questionIndex) => {
+        
         const fieldset = document.createElement("fieldset");
         fieldset.className = "quiz-question";
         fieldset.dataset.questionId = question.id;
@@ -119,22 +127,29 @@ function renderQuizQuestions(quiz) {
         const legend = document.createElement("legend");
         legend.textContent = `${questionIndex + 1}. ${question.text}`;
         fieldset.appendChild(legend);
-
+        
         question.options.forEach((optionText, optionIndex) => {
+            
             const optionId = `${quiz.id}-${question.id}-option-${optionIndex}`;
-
+            
             const wrapper = document.createElement("div");
             wrapper.className = "quiz-option";
-
+            
             const input = document.createElement("input");
             input.type = "radio";
             input.name = question.id;
             input.id = optionId;
             input.value = String(optionIndex);
-
+            
             const label = document.createElement("label");
             label.htmlFor = optionId;
-            label.textContent = optionText;
+            if (question.text.toLowerCase().includes("chemical formula")) {
+                // Condition to format any chemical formula properly
+                const formatFormula = text => text.replace(/(\d+)/g,"<sub>$1</sub>");
+                label.innerHTML = formatFormula(optionText);
+            } else {
+                label.textContent = optionText;
+            }
 
             wrapper.appendChild(input);
             wrapper.appendChild(label);
@@ -157,6 +172,7 @@ function handleQuizSubmit() {
         const fieldset = quizFormElement.querySelector(
             `fieldset.quiz-question[data-question-id="${question.id}"]`
         );
+        
         if (fieldset) {
             fieldset.classList.remove("quiz-question--incomplete");
         }
@@ -190,4 +206,18 @@ function handleQuizSubmit() {
 
         quizResultElement.textContent = `You scored ${correctCount} out of ${totalQuestions} ${percentage}%`;
     });
+}
+
+function handleQuizBack() {
+    activeQuiz = null;
+
+    quizTitleElement.textContent = "";
+    quizFormElement.innerHTML = "";
+    quizResultElement.textContent = "";
+
+    quizPlayView.hidden = true;
+    quizBackButton.hidden = true;
+    quizListView.hidden = false;
+
+    renderQuizList();
 }

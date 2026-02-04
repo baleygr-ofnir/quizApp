@@ -9,7 +9,10 @@
   </head>
   <body>
     <header class="app-header">
-        <h1>Quiz App</h1>
+      <div class="app-header-inner">
+        <h1 id="app-header-text">Quiz App</h1>
+        <button id="quiz-back-btn" type="button" hidden>⟵ Back to Quizzes</button>
+      </div>
     </header>
 
     <main class="app-main">
@@ -21,7 +24,7 @@
         <section id="quiz-play-view" hidden>
             <h2 id="quiz-title"></h2>
             <form id="quiz-form"></form>
-            <button id="quiz-submit-btn" type="button">Answer</button>
+            <button id="quiz-submit-btn" type="button">Submit Answers</button>
             <p id="quiz-result"></p>
         </section>
     </main>
