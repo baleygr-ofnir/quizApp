@@ -145,7 +145,9 @@ function renderQuizQuestions(quiz) {
             label.htmlFor = optionId;
             if (question.text.toLowerCase().includes("chemical formula")) {
                 // Condition to format any chemical formula properly
-                const formatFormula = text => text.replace(/(\d+)/g,"<sub>$1</sub>");
+                const formatFormula = text => 
+                    text.replace(/([A-Za-z])(\d+)/g, (_, letter, digits) => 
+                        `${letter}<sub>${digits}</sub>`);
                 label.innerHTML = formatFormula(optionText);
             } else {
                 label.textContent = optionText;
