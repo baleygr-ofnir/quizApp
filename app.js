@@ -1,5 +1,5 @@
 const LOCAL_STORAGE_KEY = "quizApp_quizzes";
-const DEFAULT_QUIZZES = "quizzes.json";
+const DEFAULT_QUIZZES_URL = "quizzes.json";
 
 let quizzes = [];
 let activeQuiz = null;
@@ -14,32 +14,15 @@ let quizResultElement;
 let quizSubmitButton;
 let quizBackButton;
 
-document.addEventListener("DOMContentLoaded", () => {
-    appHeaderText = document.querySelector("#app-header-text");
-    quizListElement = document.querySelector("#quiz-list");
-    quizListView = document.querySelector("#quiz-list-view");
-    quizPlayView = document.querySelector("#quiz-play-view");
-    quizTitleElement = document.querySelector("#quiz-title");
-    quizFormElement = document.querySelector("#quiz-form");
-    quizResultElement = document.querySelector("#quiz-result");
-    quizSubmitButton = document.querySelector("#quiz-submit-btn");
-    quizBackButton = document.querySelector("#quiz-back-btn");
-
-    appHeaderText.addEventListener("click", handleQuizBack);
-    quizBackButton.addEventListener("click", handleQuizBack);
-    quizSubmitButton.addEventListener("click", handleQuizSubmit);
-
-    initApp();
-});
-
-async function initApp() {
-    quizzes = await loadQuizzes();
-    renderQuizList();
+// Function ready 
+function saveQuizzes(quizzesToSave) {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(quizzesToSave));
 }
 
 async function loadQuizzes() {
     const raw = localStorage.getItem(LOCAL_STORAGE_KEY);
-    
+
+    // CHECK FOR LOCALSTORAGE CONTENT AND RETURN DATA IF PARSED CORRECTLY
     if (raw) {
         try {
             const parsed = JSON.parsed(raw);
@@ -49,7 +32,9 @@ async function loadQuizzes() {
         }
     }
     
-    const response = await fetch(DEFAULT_QUIZZES);
+    // FETCH FROM ENTERED URL (READY FOR EVENTUAL API)
+    const response = await fetch(DEFAULT_QUIZZES_URL);
+
     if (!response.ok) {
         throw new Error("Failed to load default quizzes");
     }
@@ -59,17 +44,12 @@ async function loadQuizzes() {
         throw new Error("Default quizzes JSON must be an array.");
     }
     
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(data));
+    saveQuizzes(data);
     
     return data;
 }
 
-function saveQuizzes(quizzesToSave) {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(quizzesToSave));
-}
-
-// RENDERING
-
+// RENDERING LIST OF QUIZZES TO CHOOSE FROM
 function renderQuizList() {
     quizListElement.innerHTML = "";
     
@@ -98,23 +78,7 @@ function renderQuizList() {
     });
 }
 
-function startQuiz(quizId) {
-    const quiz = quizzes.find((q) => q.id === quizId);
-    if (!quiz) return;
-    
-    activeQuiz = quiz;
-
-    quizTitleElement.textContent = quiz.title;
-    quizFormElement.innerHTML = "";
-    quizResultElement.textContent = "";
-
-    quizListView.hidden = true;
-    quizPlayView.hidden = false;
-    quizBackButton.hidden = false;
-
-    renderQuizQuestions(quiz);
-}
-
+// RENDER QUESTIONS FROM SELECTED QUIZ
 function renderQuizQuestions(quiz) {
     quizFormElement.innerHTML = "";
     
@@ -162,9 +126,27 @@ function renderQuizQuestions(quiz) {
     });
 }
 
+function startQuiz(quizId) {
+    const quiz = quizzes.find((q) => q.id === quizId);
+    if (!quiz) return;
+    
+    activeQuiz = quiz;
+
+    quizTitleElement.textContent = quiz.title;
+    quizFormElement.innerHTML = "";
+    quizResultElement.textContent = "";
+
+    quizListView.hidden = true;
+    quizPlayView.hidden = false;
+    quizBackButton.hidden = false;
+
+    renderQuizQuestions(quiz);
+}
+
 function handleQuizSubmit() {
     if (!activeQuiz) return;
 
+    // SETUP FOR DYNAMIC MISSING ANSWERS STYLING
     let hasMissingAnswers = false;
 
     activeQuiz.questions.forEach(question => {
@@ -186,12 +168,14 @@ function handleQuizSubmit() {
             }
         }
     });
-
+    
+    // CHECK FOR MISSING QUESTIONS TO DISABLE SUBMISSION BEFORE ALL ARE ANSWERED
     if (hasMissingAnswers) {
         quizResultElement.textContent = "Please answer all questions before submitting.";
         return;
     }
 
+    // CALCULATE CORRECT ANSWERS
     let correctCount = 0;
     const totalQuestions = activeQuiz.questions.length;
 
@@ -210,6 +194,7 @@ function handleQuizSubmit() {
     });
 }
 
+// HANDLER FOR BACKING TO QUIZ SELECTION IN PLAY VIEW
 function handleQuizBack() {
     activeQuiz = null;
 
@@ -223,3 +208,29 @@ function handleQuizBack() {
 
     renderQuizList();
 }
+
+// LOAD QUIZ DATA AND INITIALISE APP
+async function initApp() {
+    quizzes = await loadQuizzes();
+    renderQuizList();
+}
+
+// SETUP ELEMENT REFERENCES
+document.addEventListener("DOMContentLoaded", () => {
+    appHeaderText = document.querySelector("#app-header-text");
+    quizListElement = document.querySelector("#quiz-list");
+    quizListView = document.querySelector("#quiz-list-view");
+    quizPlayView = document.querySelector("#quiz-play-view");
+    quizTitleElement = document.querySelector("#quiz-title");
+    quizFormElement = document.querySelector("#quiz-form");
+    quizResultElement = document.querySelector("#quiz-result");
+    quizSubmitButton = document.querySelector("#quiz-submit-btn");
+    quizBackButton = document.querySelector("#quiz-back-btn");
+
+    appHeaderText.addEventListener("click", handleQuizBack);
+    quizBackButton.addEventListener("click", handleQuizBack);
+    quizSubmitButton.addEventListener("click", handleQuizSubmit);
+
+    initApp();
+});
+
