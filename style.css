@@ -132,6 +132,16 @@ body {
   cursor: pointer;
 }
 
+.quiz-option--correct {
+  background-color: #DCFCE7;
+  border-radius: 4px;
+}
+
+.quiz-option--incorrect {
+  background-color: #FEE2E2;
+  border-radius: 4px;
+}
+
 .quiz-question--incomplete {
   border-color: #ef4444;
   animation: quiz-blink 0.4s ease-in-out 2;

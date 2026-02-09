@@ -187,11 +187,33 @@ function handleQuizSubmit() {
         if (selectedIndex === question.correctIndex) {
             correctCount++;
         }
-
-        const percentage = Math.round((correctCount / totalQuestions) * 100);
-
-        quizResultElement.textContent = `You scored ${correctCount} out of ${totalQuestions} ${percentage}%`;
     });
+
+    activeQuiz.questions.forEach(question => {
+        const selectedInput = quizFormElement.querySelector(`input[name="${question.id}"]:checked`);
+        
+        const optionsNodeList = quizFormElement.querySelectorAll(`.quiz-question[data-question-id="${question.id}"] .quiz-option`);
+
+        optionsNodeList.forEach(option => {
+            option.classList.remove("quiz-option--correct", "quiz-option--incorrect");
+        });
+
+        const selectedIndex = Number(selectedInput.value);
+
+        optionsNodeList.forEach((option, index) => {
+            if (index === question.correctIndex) {
+                option.classList.add("quiz-option--correct");
+            }
+
+            if (index === selectedIndex && selectedIndex !== question.correctIndex) {
+                option.classList.add("quiz-option--incorrect");
+            }
+        });
+    });
+
+    // RESULT TEXT
+    const percentage = Math.round((correctCount / totalQuestions) * 100);
+    quizResultElement.textContent = `You scored ${correctCount} out of ${totalQuestions} ${percentage}%`;
 }
 
 // HANDLER FOR BACKING TO QUIZ SELECTION IN PLAY VIEW
